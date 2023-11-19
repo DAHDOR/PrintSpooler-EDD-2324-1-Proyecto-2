@@ -1,0 +1,6 @@
+lighter: #3553c1
+light: #253798
+medium: #202f8d
+dark: #161e5e
+darker: #1c1e2e
+darkest: #000013
