@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package colaprioridad;
+package edd;
 
 /**
  *
@@ -16,10 +16,10 @@ import java.util.*;
 
 // Clase que representa la cola de prioridad para la simulación de impresora
 public class ColaPrioridad {
-    List<Usuario> usuarios;
-    List<Documento> documentos;
-    Map<String, Integer> prioridades;
-    Map<String, Integer> indiceDocumento; // HashMap para almacenar índices de documentos por nombre
+    List <Usuario> usuarios;
+    List <Documento> documentos;
+    Map <String, Integer> prioridades;
+    Map <String, Integer> indiceDocumento; // HashMap para almacenar índices de documentos por nombre
 
     // Constructor de la clase ColaPrioridad
     public ColaPrioridad() {
@@ -156,35 +156,3 @@ public class ColaPrioridad {
         }
     }
 }
-
-// Clase principal que ejecuta la simulación de impresora
-public class SimulacionImpresora {
-    
-    public static void main(String[] args) {
-        ColaPrioridad colaPrioridad = new ColaPrioridad();
-
-        // Cargar usuarios desde un archivo CSV
-        colaPrioridad.cargarUsuariosDesdeCSV("usuarios.csv");
-
-        // Agregar documentos a la cola de impresión
-        colaPrioridad.agregarDocumento("Jperez", "Documento1", 10, "prioridad_alta");
-        colaPrioridad.agregarDocumento("m_himiot_alfaro", "Documento2", 5, "prioridad_media");
-        colaPrioridad.agregarDocumento("yurdaneta_1", "Documento3", 15, "prioridad_baja");
-
-        // Mostrar cola de impresión
-        colaPrioridad.mostrarColaImpresion();
-
-        // Liberar impresora
-        colaPrioridad.liberarImpresora();
-
-        // Mostrar cola de impresión después de imprimir
-        colaPrioridad.mostrarColaImpresion();
-
-        // Eliminar un documento de la cola
-        colaPrioridad.eliminarDocumento("Documento2");
-
-        // Mostrar cola de impresión después de eliminar
-        colaPrioridad.mostrarColaImpresion();
-    }
-}
-

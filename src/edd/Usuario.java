@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package colaprioridad;
+package edd;
 
 /**
  *
@@ -16,7 +16,7 @@ import java.util.List;
 public class Usuario {
     String nombre;
     String tipo;
-    List<Documento> documentos;
+    List <Documento> documentos;
 
     // Constructor de la clase Usuario
     public Usuario(String nombre, String tipo) {
