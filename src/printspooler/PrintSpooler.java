@@ -17,6 +17,10 @@ public class PrintSpooler extends javax.swing.JFrame {
         
         start = new gui.Start();
         
+        fileChooser = new javax.swing.JFileChooser();
+        filter = new javax.swing.filechooser.FileNameExtensionFilter("Archivos CSV", "csv");
+        fileChooser.setFileFilter(filter);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 540));
         setMinimumSize(new java.awt.Dimension(960, 540));
@@ -46,17 +50,34 @@ public class PrintSpooler extends javax.swing.JFrame {
     }
     
     private void dashboard() {
+        dashboard.getReturnButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainmenu();
+            }
+        });
         setContentPane(dashboard);
         pack();
     }
     
+    private void mainmenu() {
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(null, "¿Seguro que quieres volver?", "Confirmación", 0);
+        if (confirm == 0) {
+            start();
+        }
+    }
+    
     private void newQueueActionPerformed() {
-        dashboard = new gui.Dashboard();
+        dashboard = new gui.Dashboard(null);
         dashboard();
     }
     
     private void loadQueueActionPerformed() {
-        
+        int returnVal = fileChooser.showOpenDialog(null);
+
+        if (returnVal == javax.swing.JFileChooser.APPROVE_OPTION) {
+            dashboard = new gui.Dashboard(fileChooser.getSelectedFile().getPath());
+            dashboard();
+        }
     }
     
     /**
@@ -95,5 +116,7 @@ public class PrintSpooler extends javax.swing.JFrame {
     }
     
     private gui.Dashboard dashboard;
-    private gui.Start start;                 
+    private gui.Start start;
+    private javax.swing.JFileChooser fileChooser;
+    private javax.swing.filechooser.FileNameExtensionFilter filter;
 }

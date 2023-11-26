@@ -33,7 +33,12 @@ public class ColaPrioridad {
     }
 
     // Método para agregar un usuario a la simulación
-    public void agregarUsuario(String nombre, String tipo) {
+    public void agregarUsuario(String nombre, String tipo) throws IOException {
+        for (Usuario user : usuarios) {
+            if (user.getName().equals(nombre)) {
+                throw new IOException("El usuario ya existe");
+            }
+        }
         Usuario usuario = new Usuario(nombre, tipo);
         usuarios.add(usuario);
         System.out.println("Se agregó el usuario: " + nombre);
@@ -58,7 +63,6 @@ public class ColaPrioridad {
 
         if (optionalUsuario.isPresent()) {
             Usuario usuario = optionalUsuario.get();
-            usuario.agregarDocumento(nombreDocumento, tamaño, tipoDocumento);
             Documento nuevoDocumento = usuario.getDocumentos().get(usuario.getDocumentos().size() - 1);
             documentos.add(nuevoDocumento);
             indiceDocumento.put(nuevoDocumento.nombre, documentos.size() - 1);
@@ -154,5 +158,25 @@ public class ColaPrioridad {
         for (Documento documento : documentos) {
             System.out.println("Nombre: " + documento.nombre + ", Tamaño: " + documento.tamaño + ", Tipo: " + documento.tipo);
         }
+    }
+    
+    // Método para recibir los usuarios
+    public List <Usuario> getUsers() {
+        return usuarios;
+    }
+    
+    // Método para recibir los documentos
+    public List <Documento> getDocs() {
+        return documentos;
+    }
+    
+    // Método para recibir un usuario con determinado nombre
+    public Usuario getUser(String username) {
+        for (Usuario user : usuarios) {
+            if (user.getName().equals(username)) {
+                return user;
+            }
+        }
+        return null;
     }
 }

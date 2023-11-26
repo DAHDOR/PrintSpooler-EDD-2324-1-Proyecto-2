@@ -21,5 +21,13 @@ public class Documento {
         this.tamaño = tamaño;
         this.tipo = tipo;
     }
+    
+    public String getName() {
+        return nombre;
+    }
+    
+    public int getSize() {
+        return tamaño;
+    }
 }
 
