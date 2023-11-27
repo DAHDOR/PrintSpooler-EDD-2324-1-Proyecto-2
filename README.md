@@ -1,6 +1,6 @@
 # PrintSpooler-EDD-2324-1-Proyecto-2
 
-# PrintSpooler
+# PrintSpooler:
 
 **Descripción:** PrintSpooler es un sistema de administración de impresiones que utiliza una cola de prioridad implementada mediante un montículo binario. Permite a los usuarios agregar documentos a imprimir, asignarles prioridades, liberar la impresora para imprimir el documento de mayor prioridad, eliminar documentos de la cola y visualizar el estado actual de la cola de impresión.
 
