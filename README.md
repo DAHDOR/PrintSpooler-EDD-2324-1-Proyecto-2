@@ -19,7 +19,7 @@
 
 ## Ejecutar el programa:
 
-1. Ejecutar el método `main` desde el archivo `SimulacionImpresora.java`.
+1. Ejecutar el método `main` desde el archivo.
 
 ## Instrucciones para los usuarios:
 
